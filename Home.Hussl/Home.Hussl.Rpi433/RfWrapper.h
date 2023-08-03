@@ -16,6 +16,8 @@ extern "C" {
 #include "NewRemoteReceiver.h"
 #include "NewRemoteTransmitter.h"
 
+#define PIN_OUT 0
+
 MODULE_API int setupWiringPi();
 MODULE_API void sendUnitSignal(int pinNumber, int address, int device, bool state);
 // MODULE_API void sendGroupSignal(int pinNumber, int address, bool state);
