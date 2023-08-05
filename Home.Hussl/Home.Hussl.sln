@@ -5,7 +5,13 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Home.Hussl.Console", "Home.Hussl.Console\Home.Hussl.Console.csproj", "{3E47B751-D704-490A-8BCA-906168DCC3E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Home.Hussl.Pi", "Home.Hussl.Pi\Home.Hussl.Pi.csproj", "{D580E505-29DB-4415-AEAD-99E675B79966}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Home.Hussl.Pi", "Home.Hussl.Pi\Home.Hussl.Pi.csproj", "{D580E505-29DB-4415-AEAD-99E675B79966}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Home.Hussl.Data", "Home.Hussl.Data\Home.Hussl.Data.csproj", "{A81E7973-F803-4C2B-951B-AA0D1F58C59E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Home.Hussl.Functions", "Home.Hussl.Functions\Home.Hussl.Functions.csproj", "{F254D0D7-C5B4-4F46-BDA3-E9614D8D54BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Home.Hussl.Contracts", "Home.Hussl.Contracts\Home.Hussl.Contracts.csproj", "{4C0A4788-52A5-4102-887A-7919914E8AC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{D580E505-29DB-4415-AEAD-99E675B79966}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D580E505-29DB-4415-AEAD-99E675B79966}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D580E505-29DB-4415-AEAD-99E675B79966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81E7973-F803-4C2B-951B-AA0D1F58C59E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81E7973-F803-4C2B-951B-AA0D1F58C59E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81E7973-F803-4C2B-951B-AA0D1F58C59E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81E7973-F803-4C2B-951B-AA0D1F58C59E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F254D0D7-C5B4-4F46-BDA3-E9614D8D54BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F254D0D7-C5B4-4F46-BDA3-E9614D8D54BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F254D0D7-C5B4-4F46-BDA3-E9614D8D54BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F254D0D7-C5B4-4F46-BDA3-E9614D8D54BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C0A4788-52A5-4102-887A-7919914E8AC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C0A4788-52A5-4102-887A-7919914E8AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C0A4788-52A5-4102-887A-7919914E8AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C0A4788-52A5-4102-887A-7919914E8AC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

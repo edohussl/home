@@ -30,8 +30,8 @@ public class RfWrapper
 	[DllImport("/home/pi/rpi433/rpi433/RfWrapper.so", EntryPoint = "sendUnitSignal")]
 	public static extern void sendUnitSignal(int pinNumber, int address, int device, bool state);
 
-	//[DllImport("../lib/domotics/raspKaku/libkakuWrapper.so", EntryPoint = "sendGroupSignal")]
-	//public static extern void sendGroupSignal(int pinNumber, int address, bool state);
+	[DllImport("/home/pi/rpi433/rpi433/RfWrapper.so", EntryPoint = "sendGroupSignal")]
+	public static extern void sendGroupSignal(int pinNumber, int address, bool state);
 
 	//[DllImport("../lib/domotics/raspKaku/libkakuWrapper.so", EntryPoint = "initReceiver")]
 	//public static extern void initReceiver(int pinNumber, NewRemoteReceiverCallBack callback);
