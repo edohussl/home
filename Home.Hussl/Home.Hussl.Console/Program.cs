@@ -99,8 +99,8 @@ namespace Home.Hussl.Console
 			System.Console.WriteLine($"New code ({code.switchType}) received on address {code.address} for device {code.unit} with group bit {code.groupBit}.");
 
 			SendLightToggledEvent(
-				(int)code.address,
-				code.groupBit ? null : code.unit,
+				code.address,
+				code.groupBit ? null : (short)code.unit,
 				code.switchType == RfWrapper.NewRemoteCode.SwitchType.on).Wait();
 		}
 
