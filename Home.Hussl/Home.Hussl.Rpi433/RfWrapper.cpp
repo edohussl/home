@@ -31,17 +31,17 @@ void setupWiringPi()
 
 void sendUnitSignal(int pinNumber, long address, short device, bool state)
 {
-    pinMode(PIN_OUT, OUTPUT);
-    digitalWrite(PIN_OUT, LOW);
-    NewRemoteTransmitter transmitter(address, PIN_OUT, 260, pinNumber);
+    pinMode(pinNumber, OUTPUT);
+    digitalWrite(pinNumber, LOW);
+    NewRemoteTransmitter transmitter(address, pinNumber, 260);
     transmitter.sendUnit(device, state);
 }
 
 void sendGroupSignal(int pinNumber, long address, bool state)
 {
-    pinMode(PIN_OUT, OUTPUT);
-    digitalWrite(PIN_OUT, LOW);
-    NewRemoteTransmitter transmitter(address, PIN_OUT, 260, pinNumber);
+    pinMode(pinNumber, OUTPUT);
+    digitalWrite(pinNumber, LOW);
+    NewRemoteTransmitter transmitter(address, pinNumber, 260);
     transmitter.sendGroup(state);
 }
 
