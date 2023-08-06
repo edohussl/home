@@ -39,6 +39,8 @@ namespace Home.Hussl.Console
 				// start processing 
 				await _processor.StartProcessingAsync();
 
+				RfWrapper.initReceiver(2, TriggerLightToggledEvent);
+
 				System.Console.WriteLine("Wait for a minute and then press any key to end the processing");
 				System.Console.ReadKey();
 
@@ -53,6 +55,8 @@ namespace Home.Hussl.Console
 				// resources and other unmanaged objects are properly cleaned up.
 				await _processor.DisposeAsync();
 				await _client.DisposeAsync();
+
+				RfWrapper.deinitReceiver();
 			}
 		}
 
@@ -73,17 +77,7 @@ namespace Home.Hussl.Console
 					RfWrapper.sendGroupSignal(3, message.Address, message.TurnOn);
 				}
 
-				await using var client = new ServiceBusClient(HomeServiceBusConnectionString, _clientOptions);
-				await using var sender = client.CreateSender("lighttoggled");
-
-				var @event = new LightToggledEvent
-				{
-					Address = message.Address,
-					Device = message.Device,
-					TurnedOn = message.TurnOn
-				};
-
-				await sender.SendMessageAsync(new ServiceBusMessage(BinaryData.FromObjectAsJson(@event)));
+				await SendLightToggledEvent(message.Address, message.Device, message.TurnOn);
 
 				await args.CompleteMessageAsync(args.Message);
 			}
@@ -97,6 +91,32 @@ namespace Home.Hussl.Console
 		{
 			System.Console.WriteLine(args.Exception.ToString());
 			return Task.CompletedTask;
+		}
+
+		private static async Task TriggerLightToggledEvent(RfWrapper.NewRemoteCode code)
+		{
+			System.Console.WriteLine($"New code ({code.switchType}) received on address {code.address} for device {code.unit} with group bit {code.groupBit}.");
+
+			await SendLightToggledEvent(
+				(int)code.address,
+				code.groupBit ? null : code.unit,
+				code.switchType == RfWrapper.NewRemoteCode.SwitchType.on);
+		}
+
+		private static async Task SendLightToggledEvent(int address, int? device, bool turnedOn)
+		{
+			ToggleLightMessage message;
+			await using var client = new ServiceBusClient(HomeServiceBusConnectionString, _clientOptions);
+			await using var sender = client.CreateSender("lighttoggled");
+
+			var @event = new LightToggledEvent
+			{
+				Address = address,
+				Device = device,
+				TurnedOn = turnedOn
+			};
+
+			await sender.SendMessageAsync(new ServiceBusMessage(BinaryData.FromObjectAsJson(@event)));
 		}
 	}
 }

@@ -22,10 +22,10 @@ MODULE_API void setupWiringPi();
 MODULE_API void sendUnitSignal(int pinNumber, int address, int device, bool state);
 MODULE_API void sendGroupSignal(int pinNumber, int address, bool state);
 
-// MODULE_API void initReceiver(int pinNumber, NewRemoteReceiverCallBack callback);
-// MODULE_API void disableReceiver();
-// MODULE_API void enableReceiver();
-// MODULE_API void deinitReceiver();
+MODULE_API void initReceiver(int pinNumber, NewRemoteReceiverCallBack callback);
+MODULE_API void disableReceiver();
+MODULE_API void enableReceiver();
+MODULE_API void deinitReceiver();
 #ifdef __cplusplus
 }
 #endif
