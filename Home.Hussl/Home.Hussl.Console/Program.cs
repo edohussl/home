@@ -39,7 +39,7 @@ namespace Home.Hussl.Console
 				// start processing 
 				await _processor.StartProcessingAsync();
 
-				RfWrapper.initReceiver(2, TriggerLightToggledEvent);
+				Task.Run(() => RfWrapper.initReceiver(2, TriggerLightToggledEvent));
 				System.Console.WriteLine("Rf receiver initialized.");
 
 				System.Console.WriteLine("Wait for a minute and then press any key to end the processing");
@@ -106,7 +106,6 @@ namespace Home.Hussl.Console
 
 		private static async Task SendLightToggledEvent(int address, int? device, bool turnedOn)
 		{
-			ToggleLightMessage message;
 			await using var client = new ServiceBusClient(HomeServiceBusConnectionString, _clientOptions);
 			await using var sender = client.CreateSender("lighttoggled");
 
