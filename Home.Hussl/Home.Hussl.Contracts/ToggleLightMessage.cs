@@ -2,9 +2,9 @@
 {
 	public record ToggleLightMessage
 	{
-		public int Address { get; set; }
+		public long Address { get; set; }
 
-		public int? Device { get; set; }
+		public short? Device { get; set; }
 
 		public bool TurnOn { get; set; }
 	}

@@ -29,7 +29,7 @@ void setupWiringPi()
     }
 }
 
-void sendUnitSignal(int pinNumber, int address, int device, bool state)
+void sendUnitSignal(int pinNumber, long address, short device, bool state)
 {
     pinMode(PIN_OUT, OUTPUT);
     digitalWrite(PIN_OUT, LOW);
@@ -37,7 +37,7 @@ void sendUnitSignal(int pinNumber, int address, int device, bool state)
     transmitter.sendUnit(device, state);
 }
 
-void sendGroupSignal(int pinNumber, int address, bool state)
+void sendGroupSignal(int pinNumber, long address, bool state)
 {
     pinMode(PIN_OUT, OUTPUT);
     digitalWrite(PIN_OUT, LOW);
@@ -51,7 +51,7 @@ void initReceiver(int pinNumber, NewRemoteReceiverCallBack callback)
     _shouldRun = true;
     NewRemoteReceiver receiver(pinNumber, 2, _callback);
 
-    while (true)
+    while (_shouldRun)
     {
         sleep(1);
     }

@@ -104,7 +104,7 @@ namespace Home.Hussl.Console
 				code.switchType == RfWrapper.NewRemoteCode.SwitchType.on).Wait();
 		}
 
-		private static async Task SendLightToggledEvent(int address, int? device, bool turnedOn)
+		private static async Task SendLightToggledEvent(long address, short? device, bool turnedOn)
 		{
 			await using var client = new ServiceBusClient(HomeServiceBusConnectionString, _clientOptions);
 			await using var sender = client.CreateSender("lighttoggled");

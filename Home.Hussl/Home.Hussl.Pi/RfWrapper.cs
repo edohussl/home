@@ -28,10 +28,10 @@ public class RfWrapper
 	public static extern int setupWiringPi();
 
 	[DllImport("/home/pi/rpi433/rpi433/RfWrapper.so", EntryPoint = "sendUnitSignal")]
-	public static extern void sendUnitSignal(int pinNumber, int address, int device, bool state);
+	public static extern void sendUnitSignal(int pinNumber, long address, short device, bool state);
 
 	[DllImport("/home/pi/rpi433/rpi433/RfWrapper.so", EntryPoint = "sendGroupSignal")]
-	public static extern void sendGroupSignal(int pinNumber, int address, bool state);
+	public static extern void sendGroupSignal(int pinNumber, long address, bool state);
 
 	[DllImport("/home/pi/rpi433/rpi433/RfWrapper.so", EntryPoint = "initReceiver")]
 	public static extern void initReceiver(int pinNumber, NewRemoteReceiverCallBack callback);
