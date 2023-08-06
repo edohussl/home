@@ -19,6 +19,7 @@ public class RfWrapper
 		public bool groupBit;                // Group bit set or not
 		public SwitchType switchType;          // off, on, dim, on_with_dim.
 		public ushort unit;             // Unit code of received code [0..15]
+		public bool dimLevelPresent;  // Dim level present or not. Will be available for switchType dim, but might be available for on or off too, depending on remote.
 		public ushort dimLevel;         // Dim level [0..15] iff switchType == 2
 	};
 
