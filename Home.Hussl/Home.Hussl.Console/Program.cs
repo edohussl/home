@@ -64,10 +64,12 @@ namespace Home.Hussl.Console
 
 				if (message.Device.HasValue)
 				{
+					System.Console.Write($"Sending unit signal for device {message.Device.Value} on address {message.Address} with code {message.TurnOn}.");
 					RfWrapper.sendUnitSignal(3, message.Address, message.Device.Value, message.TurnOn);
 				}
 				else
 				{
+					System.Console.Write($"Sending group signal on address {message.Address} with code {message.TurnOn}.");
 					RfWrapper.sendGroupSignal(3, message.Address, message.TurnOn);
 				}
 
