@@ -14,13 +14,13 @@ public class RfWrapper
 			on_with_dim = 3
 		};
 
-		public uint period;            // Detected duration in microseconds of 1T in the received signal
-		public ulong address;          // Address of received code. [0..2^26-1]
+		public int period;            // Detected duration in microseconds of 1T in the received signal
+		public int address;          // Address of received code. [0..2^26-1]
 		public bool groupBit;                // Group bit set or not
 		public SwitchType switchType;          // off, on, dim, on_with_dim.
-		public ushort unit;             // Unit code of received code [0..15]
+		public short unit;             // Unit code of received code [0..15]
 		public bool dimLevelPresent;  // Dim level present or not. Will be available for switchType dim, but might be available for on or off too, depending on remote.
-		public ushort dimLevel;         // Dim level [0..15] iff switchType == 2
+		public short dimLevel;         // Dim level [0..15] iff switchType == 2
 	};
 
 	public delegate void NewRemoteReceiverCallBack(NewRemoteCode code);
