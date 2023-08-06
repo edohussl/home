@@ -14,13 +14,10 @@ extern "C" {
 #include <cstdint>
 #include <wiringPi.h>
 #include "NewRemoteReceiver.h"
-#include "NewRemoteTransmitter.h"
-
-#define PIN_OUT 0
 
 MODULE_API void setupWiringPi();
-MODULE_API void sendUnitSignal(int pinNumber, int address, int device, bool state);
-MODULE_API void sendGroupSignal(int pinNumber, int address, bool state);
+MODULE_API void sendUnitSignal(int pinNumber, long address, short device, bool state);
+MODULE_API void sendGroupSignal(int pinNumber, long address, bool state);
 
 MODULE_API void initReceiver(int pinNumber, NewRemoteReceiverCallBack callback);
 MODULE_API void disableReceiver();
