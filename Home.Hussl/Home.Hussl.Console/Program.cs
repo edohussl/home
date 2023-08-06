@@ -40,6 +40,7 @@ namespace Home.Hussl.Console
 				await _processor.StartProcessingAsync();
 
 				RfWrapper.initReceiver(2, TriggerLightToggledEvent);
+				System.Console.WriteLine("Rf receiver initialized.");
 
 				System.Console.WriteLine("Wait for a minute and then press any key to end the processing");
 				System.Console.ReadKey();
@@ -93,14 +94,14 @@ namespace Home.Hussl.Console
 			return Task.CompletedTask;
 		}
 
-		private static async Task TriggerLightToggledEvent(RfWrapper.NewRemoteCode code)
+		private static void TriggerLightToggledEvent(RfWrapper.NewRemoteCode code)
 		{
 			System.Console.WriteLine($"New code ({code.switchType}) received on address {code.address} for device {code.unit} with group bit {code.groupBit}.");
 
-			await SendLightToggledEvent(
+			SendLightToggledEvent(
 				(int)code.address,
 				code.groupBit ? null : code.unit,
-				code.switchType == RfWrapper.NewRemoteCode.SwitchType.on);
+				code.switchType == RfWrapper.NewRemoteCode.SwitchType.on).Wait();
 		}
 
 		private static async Task SendLightToggledEvent(int address, int? device, bool turnedOn)

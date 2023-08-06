@@ -51,7 +51,7 @@ void initReceiver(int pinNumber, NewRemoteReceiverCallBack callback)
     _shouldRun = true;
     NewRemoteReceiver receiver(pinNumber, 2, _callback);
 
-    while (_shouldRun)
+    while (true)
     {
         sleep(1);
     }
