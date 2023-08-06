@@ -15,7 +15,7 @@ public class RfWrapper
 		};
 
 		public uint period;            // Detected duration in microseconds of 1T in the received signal
-		public uint address;          // Address of received code. [0..2^26-1]
+		public ulong address;          // Address of received code. [0..2^26-1]
 		public bool groupBit;                // Group bit set or not
 		public SwitchType switchType;          // off, on, dim, on_with_dim.
 		public ushort unit;             // Unit code of received code [0..15]
