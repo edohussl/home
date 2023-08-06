@@ -94,14 +94,14 @@ namespace Home.Hussl.Console
 			return Task.CompletedTask;
 		}
 
-		private static void TriggerLightToggledEvent(RfWrapper.NewRemoteCode code)
+		private static async Task TriggerLightToggledEvent(RfWrapper.NewRemoteCode code)
 		{
 			System.Console.WriteLine($"New code ({code.switchType}) received on address {code.address} for device {code.unit} with group bit {code.groupBit}.");
 
-			SendLightToggledEvent(
+			await SendLightToggledEvent(
 				code.address,
 				code.groupBit ? null : code.unit,
-				code.switchType == RfWrapper.NewRemoteCode.SwitchType.on).Wait();
+				code.switchType == RfWrapper.NewRemoteCode.SwitchType.on);
 		}
 
 		private static async Task SendLightToggledEvent(long address, short? device, bool turnedOn)

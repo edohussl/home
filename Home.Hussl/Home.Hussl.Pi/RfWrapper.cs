@@ -23,7 +23,7 @@ public class RfWrapper
 		public short dimLevel;         // Dim level [0..15] iff switchType == 2
 	};
 
-	public delegate void NewRemoteReceiverCallBack(NewRemoteCode code);
+	public delegate Task NewRemoteReceiverCallBack(NewRemoteCode code);
 
 	[DllImport("/home/pi/rpi433/rpi433/RfWrapper.so", EntryPoint = "setupWiringPi")]
 	public static extern int setupWiringPi();
